@@ -101,9 +101,11 @@ df.rename(columns={'Pos.MedRivales':'PosMedRivales'})
 
 gdf = (df.groupby('Grupo', as_index=False)
     .agg({
+        'Position':'mean',
         'Volume':'sum',
         'Difficulty':'mean',
         'CPC':'mean',
+        'Pos.Med\nRivales': 'mean',
         'Keyword':' | '.join
     }))
 
